@@ -1,0 +1,58 @@
+﻿@{
+    this.ViewData["Title"] = this.ViewBag.Title;
+}
+
+<link href="~/wwwroot/css/recommendations.css" rel="stylesheet" />
+
+<div id="movieDetails" class="card mb-3" style="max-width: 1080px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            @if (ViewBag.ImageUrl.Length > 36)
+            {
+                <img src="@ViewBag.ImageUrl" class="card-img" alt="">
+            }
+            else
+            {
+                <img src="https://www.genesisglobalschool.edu.in/wp-content/uploads/2016/09/noimage.jpg" class="card-img" alt="">
+            }
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                @if (ViewBag.ReleaseDate != null)
+                {
+                    <h1 class="card-title">@ViewBag.Title <small class="text-muted">(@ViewBag.ReleaseDate.ToString("yyyy"))</small></h1>
+                    <p class="card-text"><small class="text-muted">Release Date: @ViewBag.ReleaseDate.ToString("dd-MM-yyyy")</small></p>
+                }
+                else
+                {
+                    <h1 class="card-title">@ViewBag.Title</h1>
+                    <p class="card-text"><small class="text-muted">n/a</small></p>
+                }
+                <h3>Overview</h3>
+                <p class="card-text">@ViewBag.Description</p>
+                <p class="card-text"><small class="text-muted">Rating: @ViewBag.Rating</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.Recommendations.Results.Count > 0)
+{
+    <h2 style="text-align: center">Similar Movies</h2>
+    <div class="container-fluid">
+        <div class="row flex-row flex-nowrap">
+            @foreach (var movie in ViewBag.Recommendations.Results)
+            {
+                var imgLink = "http://image.tmdb.org/t/p/original" + movie.PosterPath;
+
+                <div class="col-3">
+                    <div class="card card-block">
+                        <a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id"></a>
+                        <img class="card-img" src="@imgLink" />
+                        <p>@movie.Title</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
