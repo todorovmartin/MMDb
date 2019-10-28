@@ -33,6 +33,22 @@
         color: black;
     }
 
+#avatar {
+    width: 60px;
+}
+
+#avatar img {
+    width: 100%;
+}
+
+.navbar-nav{
+    align-items:center;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
 
 /*-------SEARCH BAR------*/
 input {
@@ -83,4 +99,3 @@ input {
     input::-webkit-input-placeholder {
         color: #999;
     }
-

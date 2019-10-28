@@ -2,9 +2,9 @@
     this.ViewData["Title"] = "Home Page";
 }
 
-@if (Model == null)
+@if (ViewBag.SearchQuery == null)
 {
-    <p>hi</p>
+    <i class="fas fa-ad"></i>
 }
 else
 {

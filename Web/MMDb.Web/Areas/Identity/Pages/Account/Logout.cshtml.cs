@@ -24,8 +24,12 @@
             this.logger = logger;
         }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
+            await this.signInManager.SignOutAsync();
+            this.logger.LogInformation("User logged out.");
+
+            return this.Redirect("/");
         }
 
         public async Task<IActionResult> OnPost(string returnUrl = null)
