@@ -33,5 +33,10 @@ namespace MMDb.Data.Models
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        // Added by me
+        public virtual ICollection<FavoriteMovie> Favorites { get; set; }
+
+        //public virtual ICollection<MovieList> Favorites { get; set; }
     }
 }

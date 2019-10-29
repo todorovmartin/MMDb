@@ -57,14 +57,16 @@
 
         private static int SandboxCode(SandboxOptions options, IServiceProvider serviceProvider)
         {
+            //TEST STUFF HERE
+
             var searchString = Console.ReadLine();
-            TMDbClient client = new TMDbClient("624b639b1f7a6928e4b362be558f4073");
+            TMDbClient client = new TMDbClient(Environment.GetEnvironmentVariable("TMDB_API_KEY"));
             var results = client.SearchMovieAsync(searchString).Result;
 
             Console.WriteLine($"Got {results.Results.Count:N0} of {results.TotalResults:N0} results");
             foreach (SearchMovie result in results.Results)
             {
-                Console.WriteLine(results);
+                Console.WriteLine(result.);
             }
 
             var sw = Stopwatch.StartNew();

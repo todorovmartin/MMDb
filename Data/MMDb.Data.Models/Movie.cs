@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MMDb.Web.ViewModels.Movies
+namespace MMDb.Data.Models
 {
-    public class MovieViewModel
+    public class Movie
     {
         public int Id { get; set; }
 
@@ -17,5 +17,7 @@ namespace MMDb.Web.ViewModels.Movies
         public DateTime? ReleaseDate { get; set; }
 
         public double Rating { get; set; }
+
+        public ICollection<FavoriteMovie> FavriteMovies { get; set; }
     }
 }
