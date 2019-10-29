@@ -1,0 +1,75 @@
+﻿@{
+    this.ViewData["Title"] = "Home Page";
+}
+
+@if (ViewBag.SearchQuery == null)
+{
+    <i class="fas fa-ad"></i>
+}
+else
+{
+    <div class="container">
+        <h1>Found @ViewBag.TotalResults results for "@ViewBag.SearchQuery"</h1>
+        <div class="row">
+            @foreach (var movie in Model)
+            {
+                <div class="col-md-6">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                @if (movie.ImageUrl.Length > 36)
+                                {
+                                    <img src="@movie.ImageUrl" class="card-img" alt="">
+                                }
+                                else
+                                {
+                                    <img src="https://www.genesisglobalschool.edu.in/wp-content/uploads/2016/09/noimage.jpg" class="card-img" alt="">
+                                }
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><a class="movieTitle" asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id">@movie.Title</a></h5>
+                                    @if (movie.ReleaseDate != null)
+                                    {
+                                        <p class="card-text"><small class="text-muted">@movie.ReleaseDate.ToString("dd-MM-yyyy")</small></p>
+                                    }
+                                    else
+                                    {
+                                        <p class="card-text"><small class="text-muted">n/a</small></p>
+                                    }
+                                    @if (movie.Description.Length < 85)
+                                    {
+                                        <p class="card-text">@movie.Description</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="card-text">@movie.Description.Substring(0, 84)...</p>
+                                    }
+                                    <p class="card-text"><small class="text-muted">@movie.Rating</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div>
+        <ul class="pagination">
+            @for (var i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                @*<li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                        <a asp-page="" asp-route-currentpage="@i" class="page-link">@i</a>
+                    </li>*@
+
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a asp-controller="Home"
+                       asp-action="Index"
+                       asp-route-searchQuery="@ViewBag.SearchQuery"
+                       asp-route-currPage="@i"
+                       class="page-link">@i</a>
+                </li>
+            }
+        </ul>
+    </div>
+}
