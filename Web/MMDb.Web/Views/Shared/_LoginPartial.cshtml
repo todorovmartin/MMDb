@@ -7,9 +7,14 @@
 <ul class="navbar-nav">
     @if (this.SignInManager.IsSignedIn(this.User))
     {
-        <li class="nav-item">
-            <a class="nav-link text-dark"><i class="fas fa-list"></i></a>
-        </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link text-dark" asp-controller="Lists" asp-action="Index"><i class="fas fa-list"></i></a>
+        <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+             aria-labelledby="navbarDropdownMenuLink-55">
+            <a class="dropdown-item" asp-controller="Lists" asp-action="Index">Lists</a>
+            <a class="dropdown-item" asp-controller="Lists" asp-action="Create">Create List</a>
+        </div>
+    </li>
         <li class="nav-item">
             <a class="nav-link text-dark" asp-controller="Favorite" asp-action="All"><i class="far fa-heart"></i></a>
         </li>
@@ -21,7 +26,7 @@
         }
         <li class="dropdown">
             <div id="avatar">
-                <a class="nav-link dropdown" data-toggle="dropdown" asp-area="Identity" asp-page="/Account/Manage/Index"
+                <a class="nav-link dropdown" @*asp-controller="User" asp-action="Profile" todo*@
                    aria-haspopup="true" aria-expanded="false">
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0"
                          alt="avatar image">

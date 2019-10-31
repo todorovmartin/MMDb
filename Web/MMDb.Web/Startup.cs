@@ -118,7 +118,9 @@
             services.AddTransient<ISettingsService, SettingsService>();
 
             // My services
+            services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<IFavoriteService, FavoriteService>();
+            services.AddScoped<IlistService, ListService>();
 
             // Auto Mapper Configurations
             var mappingConfig = new MapperConfiguration(mc =>

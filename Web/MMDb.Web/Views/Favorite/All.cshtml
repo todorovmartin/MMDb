@@ -1,25 +1,10 @@
 ﻿@model List<MMDb.Web.ViewModels.Favorites.FavoriteMovieViewModel>
-@*@foreach (var movie in Model)
-    {
-        <div class="list-group">
-            <a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.MovieNmr" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="row no-gutters">
-                    <div class="col-md-3">
-                        <img src="@movie.ImageUrl" class="card-img" />
-                    </div>
-                    <div class="col-md-9">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">@movie.Title</h5>
-                            <small class="text-muted">@movie.Rating</small>
-                        </div>
-                        <p class="mb-1">@movie.Description</p>
-                        <small class="text-muted">@movie.ReleaseDate</small>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }*@
 
+@{
+    ViewData["Title"] = "Favorite Movies";
+}
+
+<h3 class="mobile-fondsize-20 text-center">@ViewData["Title"]</h3>
 @foreach (var movie in Model)
 {
     <div class="card mb-3">

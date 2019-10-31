@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MMDb.Data.Models;
 using MMDb.Web.ViewModels.Favorites;
+using MMDb.Web.ViewModels.Lists;
 using MMDb.Web.ViewModels.Movies;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,9 @@ namespace MMDb.Web.Mapping
     {
         public MMDbConfig()
         {
+            this.CreateMap<CreateMovieListViewModel, MovieList>();
+            this.CreateMap<MovieList, MovieListViewModel>();
+
             this.CreateMap<FavoriteMovie, FavoriteMovieViewModel>()
                 .ForMember(x => x.ImageUrl, y => y.MapFrom(src => src.Movie.ImageUrl))
                 .ForMember(x => x.MovieNmr, y => y.MapFrom(src => src.Movie.MovieNmr))
