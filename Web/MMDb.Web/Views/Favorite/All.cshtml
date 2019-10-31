@@ -1,0 +1,51 @@
+﻿@model List<MMDb.Web.ViewModels.Favorites.FavoriteMovieViewModel>
+@*@foreach (var movie in Model)
+    {
+        <div class="list-group">
+            <a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.MovieNmr" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="row no-gutters">
+                    <div class="col-md-3">
+                        <img src="@movie.ImageUrl" class="card-img" />
+                    </div>
+                    <div class="col-md-9">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">@movie.Title</h5>
+                            <small class="text-muted">@movie.Rating</small>
+                        </div>
+                        <p class="mb-1">@movie.Description</p>
+                        <small class="text-muted">@movie.ReleaseDate</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }*@
+
+@foreach (var movie in Model)
+{
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-2">
+                @if (movie.ImageUrl.Length > 36)
+                {
+                    <img src="@movie.ImageUrl" class="card-img" alt="">
+                }
+                else
+                {
+                    <img src="https://www.genesisglobalschool.edu.in/wp-content/uploads/2016/09/noimage.jpg" class="card-img" alt="">
+                }
+            </div>
+            <div class="col-md-10">
+                <div class="card-body">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="card-title">@movie.Title</h5>
+                        <a asp-controller="Favorite" asp-action="Remove" asp-route-id="@movie.Id">
+                            <i class="fas fa-times" style="color: red; font-size: 30px;"></i>
+                        </a>
+                    </div>
+                    <p class="card-text">@movie.Description</p>
+                    <p class="card-text"><small class="text-muted">@movie.ReleaseDate</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
