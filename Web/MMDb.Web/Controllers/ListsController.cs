@@ -48,7 +48,7 @@ namespace MMDb.Web.Controllers
             return this.RedirectToAction(nameof(this.Index));
         }
 
-        [HttpGet("Edit")]
+        [HttpGet("Edit/{id}")]
         public IActionResult Edit(int id)
         {
             var product = this.listService.GetMovieListById(id);
