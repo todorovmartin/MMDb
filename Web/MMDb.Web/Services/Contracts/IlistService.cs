@@ -11,5 +11,11 @@ namespace MMDb.Web.Services.Contracts
         void Create(MovieList movieList, string username);
 
         IEnumerable<MovieList> GetAllMovieLists(string username);
+
+        bool Edit(MovieList movieList, string username);
+
+        bool ListExists(int id);
+
+        MovieList GetMovieListById(int id);
     }
 }

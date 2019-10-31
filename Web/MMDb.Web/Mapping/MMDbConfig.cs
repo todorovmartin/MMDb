@@ -15,6 +15,8 @@ namespace MMDb.Web.Mapping
         public MMDbConfig()
         {
             this.CreateMap<CreateMovieListViewModel, MovieList>();
+            this.CreateMap<EditMovieListViewModel, MovieList>();
+            this.CreateMap<MovieList, EditMovieListViewModel>();
             this.CreateMap<MovieList, MovieListViewModel>();
 
             this.CreateMap<FavoriteMovie, FavoriteMovieViewModel>()

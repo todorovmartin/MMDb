@@ -36,5 +36,39 @@ namespace MMDb.Web.Services
 
             return lists;
         }
+
+        public MovieList GetMovieListById(int id)
+        {
+            return this.db.MovieLists.FirstOrDefault(x => x.Id == id);
+        }
+
+        public bool ListExists(int id)
+        {
+            return this.db.MovieLists.Any(e => e.Id == id);
+        }
+
+        public bool Edit(MovieList movieList, string username)
+        {
+            if (!this.ListExists(movieList.Id))
+            {
+                return false;
+            }
+
+            var user = this.usersService.GetUserByUsername(username);
+
+            movieList.User = user;
+
+            try
+            {
+                this.db.Update(movieList);
+                this.db.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

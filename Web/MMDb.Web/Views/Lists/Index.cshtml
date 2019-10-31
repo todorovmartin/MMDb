@@ -4,17 +4,32 @@
     ViewData["Title"] = "Lists";
 }
 
-<div class="row">
-    @foreach (var list in Model)
-    {
-        <div class="col-sm-6 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@list.Name</h5>
-                    <p class="card-text">@list.Description</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+@*<div class="row">
+        @foreach (var list in Model)
+        {
+            <div class="col-sm-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@list.Name</h5>
+                        <p class="card-text">@list.Description</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
+    </div>*@
+
+<div class="list-group">
+    @foreach (var list in Model)
+    {
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">@list.Name</h5>
+                <small class="text-muted">add something here</small>
+            </div>
+            <p class="mb-1">@list.Description</p>
+            <small class="text-muted">Created on: @list.DateCreated.Value.ToString("dd-MMM-yyyy")</small>            
+        </a>
+        <a asp-action="Edit" asp-route-id="@list.Id">edit</a>
     }
 </div>

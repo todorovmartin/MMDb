@@ -47,5 +47,30 @@ namespace MMDb.Web.Controllers
 
             return this.RedirectToAction(nameof(this.Index));
         }
+
+        [HttpGet("Edit")]
+        public IActionResult Edit(int id)
+        {
+            var product = this.listService.GetMovieListById(id);
+
+            if (product == null)
+            {
+                return this.NotFound();
+            }
+
+            var model = this.mapper.Map<EditMovieListViewModel>(product);
+
+            return this.View(model);
+        }
+
+        [HttpPost("Edit")]
+        public IActionResult Edit(EditMovieListViewModel vm)
+        {
+            var list = this.mapper.Map<MovieList>(vm);
+
+            this.listService.Edit(list, this.User.Identity.Name);
+
+            return this.RedirectToAction(nameof(this.Index));
+        }
     }
 }
