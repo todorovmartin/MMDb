@@ -46,6 +46,7 @@ else
                                         <p class="card-text">@movie.Description.Substring(0, 84)...</p>
                                     }
                                     <p class="card-text"><small class="text-muted">@movie.Rating</small></p>
+                                    <a asp-controller="Favorite" asp-action="Add" asp-route-id="@movie.Id">Add to favorites</a>
                                 </div>
                             </div>
                         </div>

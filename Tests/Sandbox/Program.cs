@@ -66,7 +66,7 @@
             Console.WriteLine($"Got {results.Results.Count:N0} of {results.TotalResults:N0} results");
             foreach (SearchMovie result in results.Results)
             {
-                Console.WriteLine(result.);
+                Console.WriteLine(result);
             }
 
             var sw = Stopwatch.StartNew();

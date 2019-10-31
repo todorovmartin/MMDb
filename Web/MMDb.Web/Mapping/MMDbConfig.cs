@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MMDb.Data.Models;
+using MMDb.Web.ViewModels.Favorites;
 using MMDb.Web.ViewModels.Movies;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,14 @@ namespace MMDb.Web.Mapping
         public MMDbConfig()
         {
             //this.CreateMap<Movie, MovieViewModel>();
+            this.CreateMap<FavoriteMovie, FavoriteMovieViewModel>()
+                .ForMember(x => x.ImageUrl, y => y.MapFrom(src => src.Movie.ImageUrl))
+                .ForMember(x => x.MovieNmr, y => y.MapFrom(src => src.Movie.MovieNmr))
+                .ForMember(x => x.Rating, y => y.MapFrom(src => src.Movie.Rating))
+                .ForMember(x => x.Title, y => y.MapFrom(src => src.Movie.Title))
+                .ForMember(x => x.ReleaseDate, y => y.MapFrom(src => src.Movie.ReleaseDate))
+                .ForMember(x => x.Description, y => y.MapFrom(src => src.Movie.Description))
+                .ForMember(x => x.Id, y => y.MapFrom(src => src.Movie.Id));
         }
     }
 }
