@@ -21,5 +21,7 @@ namespace MMDb.Data.Models
         public double Rating { get; set; }
 
         public ICollection<FavoriteMovie> FavoriteMovies { get; set; }
+
+        public ICollection<MovieListMovie> MListMovies { get; set; }
     }
 }

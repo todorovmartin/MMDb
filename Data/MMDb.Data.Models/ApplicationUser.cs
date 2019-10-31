@@ -37,6 +37,6 @@ namespace MMDb.Data.Models
         // Added by me
         public virtual ICollection<FavoriteMovie> Favorites { get; set; }
 
-        //public virtual ICollection<MovieList> Favorites { get; set; }
+        public virtual ICollection<MovieList> MovieLists { get; set; }
     }
 }

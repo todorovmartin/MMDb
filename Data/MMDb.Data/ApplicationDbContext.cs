@@ -29,6 +29,11 @@
         public DbSet<FavoriteMovie> FavoriteMovies { get; set; }
 
         public DbSet<Movie> Movies { get; set; }
+
+        public DbSet<MovieList> MovieLists { get; set; }
+
+        public DbSet<MovieListMovie> MovieListMovies { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
