@@ -21,11 +21,7 @@
   <ItemGroup>
     <PackageReference Include="dotenv.net" Version="1.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
-<<<<<<< HEAD
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
-=======
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
->>>>>>> 04617f2c5c0b150e5807d9f762cf2631c36a95e9
     <PackageReference Include="BuildBundlerMinifier" Version="2.9.406" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.0.76" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="all">

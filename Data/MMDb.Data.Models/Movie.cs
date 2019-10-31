@@ -8,11 +8,8 @@ namespace MMDb.Data.Models
     {
         public int Id { get; set; }
 
-<<<<<<< HEAD
         public int MovieNmr { get; set; }
 
-=======
->>>>>>> 04617f2c5c0b150e5807d9f762cf2631c36a95e9
         public string Title { get; set; }
 
         public string ImageUrl { get; set; }
@@ -23,10 +20,6 @@ namespace MMDb.Data.Models
 
         public double Rating { get; set; }
 
-<<<<<<< HEAD
         public ICollection<FavoriteMovie> FavoriteMovies { get; set; }
-=======
-        public ICollection<FavoriteMovie> FavriteMovies { get; set; }
->>>>>>> 04617f2c5c0b150e5807d9f762cf2631c36a95e9
     }
 }

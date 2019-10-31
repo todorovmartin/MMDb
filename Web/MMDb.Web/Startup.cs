@@ -27,13 +27,10 @@
     using dotenv.net;
     using dotenv.net.DependencyInjection.Extensions;
     using System.Text;
-<<<<<<< HEAD
     using MMDb.Web.Services.Contracts;
     using MMDb.Web.Services;
     using AutoMapper;
     using MMDb.Web.Mapping;
-=======
->>>>>>> 04617f2c5c0b150e5807d9f762cf2631c36a95e9
 
     public class Startup
     {
@@ -119,7 +116,6 @@
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISmsSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
-<<<<<<< HEAD
 
             // My services
             services.AddScoped<IFavoriteService, FavoriteService>();
@@ -132,8 +128,6 @@
 
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
-=======
->>>>>>> 04617f2c5c0b150e5807d9f762cf2631c36a95e9
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
